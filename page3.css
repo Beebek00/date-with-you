@@ -1,0 +1,1615 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    color: white;
+
+    background: #0b0b14;
+
+    opacity: 0;
+
+    animation:
+        pageFadeIn 0.6s ease forwards;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.date-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 79, 129, 0.12),
+            transparent 45%
+        ),
+        #0b0b14;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.background-glow {
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: #ff4f81;
+
+    opacity: 0.08;
+
+    filter: blur(120px);
+
+    animation:
+        backgroundPulse 6s ease-in-out infinite;
+}
+
+
+/* Additional soft glow */
+
+.date-page::before {
+    content: "♥";
+
+    position: absolute;
+
+    top: 8%;
+    left: 9%;
+
+    color: #ff7fa5;
+
+    font-size: 28px;
+
+    opacity: 0.08;
+
+    transform: rotate(-18deg);
+
+    animation:
+        floatingHeart 5s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+.date-page::after {
+    content: "♥";
+
+    position: absolute;
+
+    right: 8%;
+    bottom: 13%;
+
+    color: #ff7fa5;
+
+    font-size: 38px;
+
+    opacity: 0.06;
+
+    transform: rotate(15deg);
+
+    animation:
+        floatingHeart 6s ease-in-out 1s infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.date-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 700px);
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.35),
+
+        0 0 60px
+        rgba(255, 79, 129, 0.04);
+
+    animation:
+        cardAppear 0.7s ease;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+.progress span {
+    width: 35px;
+
+    height: 4px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.progress .active {
+    background: #ff4f81;
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 79, 129, 0.4);
+
+    transform: scaleY(1.2);
+}
+
+
+/* =========================
+   STEP LABEL
+========================= */
+
+.step-label {
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   MAIN ICON
+========================= */
+
+.main-calendar-icon {
+    font-size: 40px;
+
+    margin-bottom: 18px;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255, 127, 165, 0.25)
+        );
+
+    animation:
+        iconFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+    font-size: clamp(32px, 5vw, 52px);
+
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -1px;
+}
+
+h1 span {
+    display: block;
+
+    color: #ff7fa5;
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 127, 165, 0.12);
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.subtitle {
+    color: #aaaab8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-top: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   DATE OPTIONS
+========================= */
+
+.date-options {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   CUSTOM DATE
+========================= */
+
+.custom-date-option {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    width: 100%;
+
+    padding: 18px 20px;
+
+    margin-bottom: 8px;
+
+    border-radius: 18px;
+
+    border: 1px solid
+        rgba(255, 127, 165, 0.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 127, 165, 0.08),
+            rgba(255, 255, 255, 0.03)
+        );
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Decorative sparkle */
+
+.custom-date-option::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 8px;
+    right: 42px;
+
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Decorative shine */
+
+.custom-date-option::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.06),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.7s ease;
+
+    pointer-events: none;
+}
+
+
+.custom-date-option:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(255, 127, 165, 0.6);
+
+    background:
+        rgba(255, 127, 165, 0.1);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 79, 129, 0.1);
+}
+
+
+.custom-date-option:hover::before {
+    opacity: 0.7;
+
+    transform:
+        rotate(15deg)
+        scale(1.15);
+}
+
+
+.custom-date-option:hover::after {
+    left: 140%;
+}
+
+
+.custom-date-option.selected {
+    border-color: #ff7fa5;
+
+    background:
+        rgba(255, 79, 129, 0.12);
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 79, 129, 0.15);
+}
+
+
+/* CUSTOM ICON */
+
+.custom-calendar-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 127, 165, 0.12);
+
+    color: #ff7fa5;
+
+    font-size: 24px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.custom-date-option:hover
+.custom-calendar-icon {
+    transform:
+        rotate(-6deg)
+        scale(1.08);
+
+    background:
+        rgba(255, 127, 165, 0.18);
+
+    box-shadow:
+        0 0 18px
+        rgba(255, 79, 129, 0.12);
+}
+
+
+/* CUSTOM TEXT */
+
+.custom-date-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.custom-date-text strong {
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.custom-date-text small {
+    color: #a9a9b8;
+
+    font-size: 12px;
+}
+
+
+/* ARROW */
+
+.custom-date-arrow {
+    margin-left: auto;
+
+    color: #ff7fa5;
+
+    font-size: 28px;
+
+    transition:
+        transform 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+.custom-date-option:hover
+.custom-date-arrow {
+    transform:
+        translateX(5px);
+
+    text-shadow:
+        0 0 12px
+        rgba(255, 127, 165, 0.5);
+}
+
+
+/* =========================
+   ROMANTIC CALENDAR
+========================= */
+
+.romantic-calendar {
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    padding: 24px;
+
+    border-radius: 22px;
+
+    border: 1px solid
+        rgba(255, 127, 165, 0.18);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 127, 165, 0.055),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.25),
+
+        0 0 40px
+        rgba(255, 79, 129, 0.05);
+
+    overflow: hidden;
+
+    animation:
+        calendarAppear 0.3s ease;
+}
+
+
+/* Calendar decorative hearts */
+
+.romantic-calendar::before {
+    content: "♥";
+
+    position: absolute;
+
+    top: 8px;
+    right: 17px;
+
+    color: #ff7fa5;
+
+    font-size: 40px;
+
+    opacity: 0.07;
+
+    transform: rotate(15deg);
+
+    pointer-events: none;
+}
+
+
+.romantic-calendar::after {
+    content: "♡";
+
+    position: absolute;
+
+    left: 16px;
+    bottom: 8px;
+
+    color: #ff7fa5;
+
+    font-size: 30px;
+
+    opacity: 0.06;
+
+    transform: rotate(-12deg);
+
+    pointer-events: none;
+}
+
+
+.romantic-calendar.open {
+    display: block;
+}
+
+
+/* =========================
+   CALENDAR HEADER
+========================= */
+
+.calendar-header {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.calendar-title {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+.calendar-month {
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 18px
+        rgba(255, 127, 165, 0.18);
+}
+
+.calendar-year {
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* MONTH BUTTON */
+
+.month-btn {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid
+        rgba(255, 127, 165, 0.2);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 127, 165, 0.06);
+
+    color: #ff7fa5;
+
+    font-family: inherit;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.month-btn:hover {
+    transform: scale(1.1);
+
+    background:
+        rgba(255, 127, 165, 0.15);
+
+    color: white;
+
+    box-shadow:
+        0 0 18px
+        rgba(255, 79, 129, 0.12);
+}
+
+.month-btn:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================
+   WEEKDAYS
+========================= */
+
+.calendar-weekdays {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 5px;
+
+    margin-bottom: 10px;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+
+    color: #777788;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    transition:
+        color 0.2s ease;
+}
+
+.calendar-weekdays span:hover {
+    color: #ff7fa5;
+}
+
+
+/* =========================
+   CALENDAR DAYS
+========================= */
+
+.calendar-days {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 6px;
+}
+
+
+/* Actual JS-generated class */
+
+.calendar-date {
+    position: relative;
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #dddde8;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.calendar-date:not(:disabled):hover {
+    transform:
+        translateY(-2px)
+        scale(1.06);
+
+    background:
+        rgba(255, 127, 165, 0.12);
+
+    color: #ff7fa5;
+
+    box-shadow:
+        0 6px 18px
+        rgba(255, 79, 129, 0.1);
+}
+
+
+/* SELECTED */
+
+.calendar-date.selected {
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff7099
+        );
+
+    color: white;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 6px 20px
+        rgba(255, 79, 129, 0.35),
+
+        0 0 18px
+        rgba(255, 79, 129, 0.12);
+}
+
+
+.calendar-date.selected::after {
+    content: "♥";
+
+    position: absolute;
+
+    bottom: -7px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: #ff7fa5;
+
+    font-size: 7px;
+}
+
+
+/* PAST DATES */
+
+.calendar-date.disabled {
+    color: #3f3f4b;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+}
+
+
+/* EMPTY CELLS */
+
+.calendar-empty {
+    pointer-events: none;
+}
+
+
+/* =========================
+   OLD CLASS SUPPORT
+========================= */
+
+.calendar-day {
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #ddddE8;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   DATE CARDS
+========================= */
+
+.date-option {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 90px;
+
+    height: 120px;
+
+    border-radius: 18px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.1);
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Decorative heart */
+
+.date-option::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: 7px;
+    right: 9px;
+
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.date-option:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        #ff7fa5;
+
+    background:
+        rgba(255, 79, 129, 0.1);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255, 79, 129, 0.12);
+}
+
+
+.date-option:hover::before {
+    opacity: 0.7;
+
+    transform:
+        scale(1.15)
+        rotate(8deg);
+}
+
+
+.date-option.selected {
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff7099
+        );
+
+    border-color:
+        #ff4f81;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 79, 129, 0.3);
+}
+
+
+/* DAY */
+
+.date-option .day {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.7;
+}
+
+
+/* NUMBER */
+
+.date-option strong {
+    font-size: 30px;
+
+    line-height: 1;
+
+    font-weight: 600;
+}
+
+
+/* MONTH */
+
+.date-option .month {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.continue-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff7099
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 79, 129, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Button shine */
+
+.continue-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.16),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.6s ease;
+}
+
+
+.continue-btn:hover::before {
+    left: 140%;
+}
+
+
+.continue-btn:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(255, 79, 129, 0.4);
+}
+
+
+.continue-btn:active {
+    transform:
+        translateY(-1px)
+        scale(0.98);
+}
+
+
+.continue-btn span {
+    margin-left: 8px;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   BOTTOM NOTE
+========================= */
+
+.bottom-note {
+    position: absolute;
+
+    bottom: 20px;
+
+    color: #666675;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   PAGE TRANSITIONS
+========================= */
+
+body.page-exit {
+    animation:
+        pageFadeOut 0.35s ease forwards;
+}
+
+
+@keyframes pageFadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes pageFadeOut {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   CARD ANIMATION
+========================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   CALENDAR ANIMATION
+========================= */
+
+@keyframes calendarAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-8px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   BACKGROUND ANIMATION
+========================= */
+
+@keyframes backgroundPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        opacity: 0.08;
+    }
+
+    50% {
+        transform: scale(1.12);
+
+        opacity: 0.11;
+    }
+
+}
+
+
+/* =========================
+   ICON ANIMATION
+========================= */
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+@keyframes floatingHeart {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-12deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(8deg);
+    }
+
+}
+/* =========================
+   ROMANTIC ALERT
+========================= */
+
+.romantic-alert {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.9);
+
+    width: min(
+        calc(100% - 40px),
+        360px
+    );
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    border: 1px solid
+        rgba(255, 127, 165, 0.25);
+
+    background:
+        rgba(18, 18, 30, 0.94);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.5),
+
+        0 0 50px
+        rgba(255, 79, 129, 0.12);
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.romantic-alert.show {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* Heart */
+
+.alert-heart {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 79, 129, 0.1);
+
+    color: #ff4f81;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 79, 129, 0.15);
+
+    animation:
+        alertHeartBeat 1.8s infinite;
+}
+
+
+/* Heading */
+
+.romantic-alert h2 {
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+
+/* Message */
+
+.romantic-alert p {
+    margin-bottom: 20px;
+
+    color: #aaaab8;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* Button */
+
+.alert-close {
+    border: none;
+
+    padding: 11px 25px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff7099
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px
+        rgba(255, 79, 129, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.alert-close:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 28px
+        rgba(255, 79, 129, 0.35);
+}
+
+
+/* Dark overlay */
+
+.alert-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9998;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(3px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+
+.alert-overlay.show {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* Animation */
+
+@keyframes alertHeartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.1);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.06);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .date-page {
+        padding: 20px;
+    }
+
+    .date-card {
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .date-options {
+        gap: 8px;
+    }
+
+    .date-option {
+        width: 72px;
+
+        height: 105px;
+    }
+
+    .date-option strong {
+        font-size: 26px;
+    }
+
+    .custom-date-option {
+        padding: 16px;
+
+        gap: 12px;
+    }
+
+    .custom-calendar-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 20px;
+    }
+
+    .custom-date-text strong {
+        font-size: 14px;
+    }
+
+    .custom-date-text small {
+        font-size: 11px;
+    }
+
+    .romantic-calendar {
+        padding: 18px;
+    }
+
+    .calendar-days {
+        gap: 3px;
+    }
+
+    .calendar-date {
+        font-size: 11px;
+    }
+
+    .calendar-day {
+        font-size: 11px;
+    }
+
+    .bottom-note {
+        display: none;
+    }
+
+}

@@ -1,0 +1,967 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    color: white;
+
+    background: #0b0b14;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.confirmation-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 79, 129, 0.14),
+            transparent 45%
+        ),
+        #0b0b14;
+}
+
+
+/* =========================
+   GLOWS
+========================= */
+
+.glow-one,
+.glow-two {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.glow-one {
+    width: 420px;
+
+    height: 420px;
+
+    top: -150px;
+
+    left: -100px;
+
+    background: #ff4f81;
+
+    opacity: 0.08;
+
+    filter: blur(120px);
+}
+
+.glow-two {
+    width: 380px;
+
+    height: 380px;
+
+    right: -120px;
+
+    bottom: -150px;
+
+    background: #ff7fa5;
+
+    opacity: 0.07;
+
+    filter: blur(120px);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.confirmation-card {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(100%, 650px);
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    border:
+        1px solid
+        rgba(255, 127, 165, 0.15);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.4);
+
+    animation:
+        cardAppear 0.7s ease;
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+/* =========================
+   CELEBRATION CARD
+========================= */
+
+.confirmation-card.celebrate {
+    transform:
+        scale(1.02);
+
+    box-shadow:
+        0 25px 100px
+        rgba(255, 79, 129, 0.25);
+}
+
+
+/* =========================
+   SUCCESS LABEL
+========================= */
+
+.success-label {
+    display: inline-block;
+
+    color: #ff7fa5;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   BIG HEART
+========================= */
+
+.big-heart {
+    width: 75px;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 79, 129, 0.12);
+
+    color: #ff4f81;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 0 35px
+        rgba(255, 79, 129, 0.2);
+
+    animation:
+        heartBeat 1.8s infinite;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =========================
+   CELEBRATION HEART
+========================= */
+
+.confirmation-card.celebrate
+.big-heart {
+    animation:
+        celebrationHeart 0.8s ease;
+
+    box-shadow:
+        0 0 70px
+        rgba(255, 79, 129, 0.55);
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+    font-size:
+        clamp(42px, 7vw, 62px);
+
+    line-height: 1.05;
+
+    font-weight: 600;
+
+    letter-spacing: -2px;
+}
+
+h1 span {
+    display: block;
+
+    color: #ff7fa5;
+}
+
+
+/* =========================
+   CONFIRMATION TEXT
+========================= */
+
+.confirmation-text {
+    max-width: 450px;
+
+    margin: 18px auto 30px;
+
+    color: #aaaab8;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   DATE SUMMARY
+========================= */
+
+.date-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   SUMMARY ITEM
+========================= */
+
+.summary-item {
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-radius: 16px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    text-align: left;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.summary-item:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(255, 127, 165, 0.3);
+
+    background:
+        rgba(255, 79, 129, 0.06);
+}
+
+
+/* =========================
+   SUMMARY ICON
+========================= */
+
+.summary-icon {
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 127, 165, 0.09);
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   SUMMARY CONTENT
+========================= */
+
+.summary-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+.summary-content span {
+    color: #737382;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.summary-content strong {
+    color: #eeeeF5;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-message {
+    padding: 18px 20px;
+
+    margin-bottom: 25px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255, 79, 129, 0.055);
+
+    border:
+        1px solid
+        rgba(255, 127, 165, 0.1);
+}
+
+.final-message p {
+    color: #a9a9b7;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.final-message p:last-child {
+    color: #ff9fba;
+
+    margin-top: 2px;
+}
+
+
+/* =========================
+   FINISH BUTTON
+========================= */
+
+.finish-btn {
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff6f99
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 79, 129, 0.22);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.finish-btn span {
+    margin-left: 7px;
+
+    font-size: 14px;
+}
+
+.finish-btn:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255, 79, 129, 0.38);
+}
+
+.finish-btn:active {
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================
+   SAVED MESSAGE
+========================= */
+
+.saved-message {
+    display: none;
+
+    margin-top: 14px;
+
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    animation:
+        savedAppear 0.4s ease;
+}
+
+.saved-message.show {
+    display: block;
+}
+
+
+/* =========================
+   CELEBRATION MESSAGE
+========================= */
+
+.celebration-message {
+    display: none;
+
+    margin-top: 7px;
+
+    color: #ffb1c7;
+
+    font-size: 12px;
+
+    animation:
+        savedAppear 0.5s ease;
+}
+
+.celebration-message.show {
+    display: block;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: absolute;
+
+    bottom: 18px;
+
+    color: #5f5f6e;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-hearts {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.floating-hearts span {
+    position: absolute;
+
+    bottom: -30px;
+
+    color: #ff7fa5;
+
+    opacity: 0;
+
+    font-size: 14px;
+
+    animation:
+        floatHeart
+        8s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 12%;
+
+    animation-delay: 0s;
+
+    animation-duration: 7s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 28%;
+
+    animation-delay: 2s;
+
+    animation-duration: 9s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 45%;
+
+    animation-delay: 4s;
+
+    animation-duration: 8s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 63%;
+
+    animation-delay: 1s;
+
+    animation-duration: 10s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 78%;
+
+    animation-delay: 3s;
+
+    animation-duration: 7s;
+}
+
+.floating-hearts span:nth-child(6) {
+    left: 90%;
+
+    animation-delay: 5s;
+
+    animation-duration: 9s;
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: absolute;
+
+    width: 9px;
+
+    height: 9px;
+
+    left: 50%;
+
+    top: 50%;
+
+    pointer-events: none;
+
+    border-radius: 2px;
+
+    animation:
+        confettiBurst
+        1.4s
+        ease-out
+        forwards;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.08);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.05);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes celebrationHeart {
+
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.45);
+    }
+
+    60% {
+        transform: scale(0.9);
+    }
+
+    80% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    10% {
+        opacity: 0.35;
+    }
+
+    80% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-110vh)
+            rotate(35deg);
+    }
+
+}
+
+
+@keyframes savedAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes confettiBurst {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(0, 0)
+            rotate(0deg)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(
+                var(--rotation)
+            )
+            scale(0.7);
+    }
+
+}
+
+.celebration-container {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    border-radius: 2px;
+    animation: confettiBurst 1.4s ease-out forwards;
+    z-index: 20;
+}
+
+@keyframes confettiBurst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(var(--x), var(--y))
+            rotate(var(--rotation))
+            scale(0.6);
+    }
+}
+/* =========================
+   PAGE TRANSITIONS
+========================= */
+
+body {
+    opacity: 0;
+    animation: pageFadeIn 0.6s ease forwards;
+}
+
+body.page-exit {
+    animation: pageFadeOut 0.35s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+.restart-btn {
+    margin-top: 14px;
+    padding: 11px 24px;
+
+    border: 1px solid rgba(255, 127, 165, 0.25);
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.restart-btn:hover {
+    color: #ffffff;
+
+    border-color: rgba(255, 127, 165, 0.5);
+
+    background: rgba(255, 79, 129, 0.08);
+
+    transform: translateY(-2px);
+}
+
+.restart-btn:active {
+    transform: scale(0.96);
+}
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .confirmation-page {
+        padding: 20px;
+
+        align-items: center;
+    }
+
+    .confirmation-card {
+        padding: 35px 20px;
+
+        border-radius: 27px;
+    }
+
+    .success-label {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+    .big-heart {
+        width: 65px;
+
+        height: 65px;
+
+        font-size: 32px;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .confirmation-text {
+        font-size: 12px;
+
+        margin-bottom: 25px;
+    }
+
+    .date-summary {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+    .summary-item {
+        min-height: 68px;
+    }
+
+    .final-message {
+        padding: 15px;
+    }
+
+    .finish-btn {
+        padding: 13px 24px;
+    }
+
+    footer {
+        display: none;
+    }
+
+}

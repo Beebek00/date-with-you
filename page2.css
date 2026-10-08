@@ -1,0 +1,572 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background: #0b0b14;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.question-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 79, 129, 0.13),
+            transparent 45%
+        ),
+        #0b0b14;
+}
+
+
+/* =========================
+   GLOWS
+========================= */
+
+.glow-one,
+.glow-two {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.glow-one {
+    width: 430px;
+    height: 430px;
+
+    top: -160px;
+    left: -120px;
+
+    background: #ff4f81;
+
+    opacity: 0.08;
+
+    filter: blur(120px);
+}
+
+.glow-two {
+    width: 350px;
+    height: 350px;
+
+    right: -120px;
+    bottom: -120px;
+
+    background: #ff7fa5;
+
+    opacity: 0.07;
+
+    filter: blur(110px);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.question-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 650px);
+
+    padding: 55px 40px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0, 0, 0, 0.4);
+
+    animation:
+        cardAppear 0.7s ease;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.question-label {
+    color: #ff7fa5;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.question-heart {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 79, 129, 0.1);
+
+    color: #ff4f81;
+
+    font-size: 34px;
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 79, 129, 0.16);
+
+    animation:
+        heartbeat 2s infinite;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+    font-size:
+        clamp(38px, 6vw, 58px);
+
+    line-height: 1.1;
+
+    font-weight: 600;
+
+    letter-spacing: -1.5px;
+}
+
+h1 span {
+    display: block;
+    color: #ff7fa5;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.question-text {
+    max-width: 450px;
+
+    margin: 20px auto 35px;
+
+    color: #aaaab8;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   ANSWER AREA
+========================= */
+
+.answer-area {
+    min-height: 170px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    position: relative;
+}
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+.yes-btn {
+    min-width: 125px;
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff6f99
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 79, 129, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.yes-btn span {
+    margin-left: 5px;
+}
+
+.yes-btn:hover {
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255, 79, 129, 0.4);
+}
+
+
+/* =========================
+   NO BUTTON
+========================= */
+
+.no-btn {
+    min-width: 100px;
+
+    padding: 13px 25px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: #aaaab8;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.no-btn:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+}
+
+
+/* =========================
+   NO MESSAGE
+========================= */
+
+.no-message {
+    min-height: 20px;
+
+    margin-top: 5px;
+
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    letter-spacing: 0.5px;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================
+   REJECTION MESSAGE
+========================= */
+
+.no-message.rejected {
+    color: #aaaab8;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-top: 5px;
+
+    animation:
+        rejectionAppear 0.5s ease;
+}
+
+
+/* =========================
+   QUESTION NOTE
+========================= */
+
+.question-note {
+    margin-top: 30px;
+
+    color: #646473;
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: absolute;
+
+    bottom: 18px;
+
+    color: #555563;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.08);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.05);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes noShake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes rejectionAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+/* =========================
+   PAGE TRANSITIONS
+========================= */
+
+body {
+    opacity: 0;
+    animation: pageFadeIn 0.6s ease forwards;
+}
+
+body.page-exit {
+    animation: pageFadeOut 0.35s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .question-page {
+        padding: 20px;
+    }
+
+    .question-card {
+        padding: 45px 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .question-text {
+        font-size: 12px;
+    }
+
+    .answer-area {
+        min-height: 170px;
+    }
+
+    .yes-btn {
+        min-width: 110px;
+
+        padding: 13px 22px;
+    }
+
+    .no-btn {
+        min-width: 90px;
+
+        padding: 12px 20px;
+    }
+
+    footer {
+        display: none;
+    }
+
+}

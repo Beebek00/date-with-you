@@ -1,0 +1,1151 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background: #0b0b14;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.time-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 79, 129, 0.12),
+            transparent 45%
+        ),
+        #0b0b14;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.background-glow {
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: #ff4f81;
+
+    opacity: 0.08;
+
+    filter: blur(120px);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.time-card {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 700px);
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+.progress span {
+    width: 35px;
+    height: 4px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+}
+
+.progress .completed,
+.progress .active {
+    background: #ff4f81;
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 79, 129, 0.4);
+}
+
+
+/* =========================
+   STEP LABEL
+========================= */
+
+.step-label {
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   MAIN ICON
+========================= */
+
+.main-time-icon {
+    font-size: 40px;
+
+    margin-bottom: 18px;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255, 127, 165, 0.25)
+        );
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+    font-size:
+        clamp(32px, 5vw, 52px);
+
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -1px;
+}
+
+h1 span {
+    display: block;
+
+    color: #ff7fa5;
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.subtitle {
+    color: #aaaab8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-top: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   TIME OPTIONS
+========================= */
+
+.time-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   TIME OPTION
+========================= */
+
+.time-option {
+    min-height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: white;
+
+    font-family: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.time-option:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(255, 127, 165, 0.5);
+
+    background:
+        rgba(255, 79, 129, 0.08);
+}
+
+.time-option.selected {
+    border-color: #ff4f81;
+
+    background:
+        rgba(255, 79, 129, 0.13);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 79, 129, 0.15);
+}
+
+
+/* =========================
+   TIME ICON
+========================= */
+
+.time-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 127, 165, 0.09);
+
+    font-size: 22px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.time-option:hover .time-icon {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   TIME INFO
+========================= */
+
+.time-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.time-info .time {
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.time-info small {
+    color: #888897;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CUSTOM TIME BUTTON
+========================= */
+
+.custom-time-btn {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 18px;
+
+    margin-bottom: 15px;
+
+    border:
+        1px solid
+        rgba(255, 127, 165, 0.22);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 127, 165, 0.07),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.custom-time-btn:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(255, 127, 165, 0.55);
+
+    background:
+        rgba(255, 127, 165, 0.1);
+}
+
+.custom-time-btn.selected {
+    border-color: #ff7fa5;
+
+    background:
+        rgba(255, 79, 129, 0.11);
+}
+
+
+/* =========================
+   CUSTOM TIME ICON
+========================= */
+
+.custom-time-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 127, 165, 0.11);
+
+    color: #ff7fa5;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   CUSTOM TIME TEXT
+========================= */
+
+.custom-time-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.custom-time-text strong {
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.custom-time-text small {
+    color: #9999aa;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   CUSTOM TIME ARROW
+========================= */
+
+.custom-time-arrow {
+    margin-left: auto;
+
+    color: #ff7fa5;
+
+    font-size: 27px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.custom-time-btn:hover
+.custom-time-arrow {
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================
+   CUSTOM TIME PICKER
+========================= */
+
+.custom-time-picker {
+    display: none;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding: 24px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid
+        rgba(255, 127, 165, 0.18);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.25);
+
+    animation:
+        pickerAppear 0.3s ease;
+}
+
+.custom-time-picker.open {
+    display: block;
+}
+
+
+/* =========================
+   PICKER HEADER
+========================= */
+
+.picker-header {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+}
+
+.picker-header div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    align-items: center;
+}
+
+.picker-header span {
+    color: #777788;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.selected-time-display {
+    color: #ff7fa5;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   PICKER CONTROLS
+========================= */
+
+.time-picker-controls {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   PICKER COLUMN
+========================= */
+
+.picker-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* =========================
+   PICKER ARROWS
+========================= */
+
+.picker-arrow {
+    width: 40px;
+    height: 30px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 127, 165, 0.06);
+
+    color: #ff7fa5;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.picker-arrow:hover {
+    background:
+        rgba(255, 127, 165, 0.15);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   PICKER VALUE
+========================= */
+
+.picker-value {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    border:
+        1px solid
+        rgba(255, 127, 165, 0.3);
+
+    background:
+        rgba(255, 79, 129, 0.1);
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   SEPARATOR
+========================= */
+
+.picker-separator {
+    color: #ff7fa5;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    margin-top: 2px;
+}
+
+
+/* =========================
+   AM / PM
+========================= */
+
+.ampm-option {
+    width: 55px;
+    height: 30px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: #777788;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.ampm-option.selected {
+    background: #ff4f81;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(255, 79, 129, 0.25);
+}
+
+
+/* =========================
+   CONFIRM CUSTOM TIME
+========================= */
+
+.confirm-time-btn {
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(255, 79, 129, 0.15);
+
+    border:
+        1px solid
+        rgba(255, 127, 165, 0.3);
+
+    color: #ff7fa5;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.confirm-time-btn span {
+    margin-left: 7px;
+
+    font-size: 14px;
+}
+
+.confirm-time-btn:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(255, 79, 129, 0.25);
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.continue-btn {
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    background: #ff4f81;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.continue-btn span {
+    margin-left: 8px;
+
+    font-size: 17px;
+}
+
+.continue-btn:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 79, 129, 0.4);
+}
+
+
+/* =========================
+   BOTTOM NOTE
+========================= */
+
+.bottom-note {
+    position: absolute;
+
+    bottom: 20px;
+
+    color: #666675;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes pickerAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-8px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+/* =========================
+   PAGE TRANSITIONS
+========================= */
+
+body {
+    opacity: 0;
+    animation: pageFadeIn 0.6s ease forwards;
+}
+
+body.page-exit {
+    animation: pageFadeOut 0.35s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+/* =========================
+   ROMANTIC ALERT
+========================= */
+
+.romantic-alert {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.9);
+
+    width: min(
+        calc(100% - 40px),
+        360px
+    );
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    border: 1px solid
+        rgba(255, 127, 165, 0.25);
+
+    background:
+        rgba(18, 18, 30, 0.94);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.5),
+
+        0 0 50px
+        rgba(255, 79, 129, 0.12);
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.romantic-alert.show {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* Heart */
+
+.alert-heart {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 79, 129, 0.1);
+
+    color: #ff4f81;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 79, 129, 0.15);
+
+    animation:
+        alertHeartBeat 1.8s infinite;
+}
+
+
+/* Heading */
+
+.romantic-alert h2 {
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+
+/* Message */
+
+.romantic-alert p {
+    margin-bottom: 20px;
+
+    color: #aaaab8;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* Button */
+
+.alert-close {
+    border: none;
+
+    padding: 11px 25px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f81,
+            #ff7099
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px
+        rgba(255, 79, 129, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.alert-close:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 28px
+        rgba(255, 79, 129, 0.35);
+}
+
+
+/* Overlay */
+
+.alert-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9998;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(3px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+.alert-overlay.show {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* Heart animation */
+
+@keyframes alertHeartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.1);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.06);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+}
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .time-page {
+        padding: 20px;
+    }
+
+    .time-card {
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .time-options {
+        grid-template-columns: 1fr;
+    }
+
+    .time-option {
+        min-height: 75px;
+
+        padding: 14px;
+    }
+
+    .custom-time-btn {
+        padding: 15px;
+    }
+
+    .custom-time-picker {
+        padding: 18px;
+    }
+
+    .time-picker-controls {
+        gap: 7px;
+    }
+
+    .picker-value {
+        width: 58px;
+        height: 58px;
+
+        font-size: 22px;
+    }
+
+    .picker-arrow {
+        width: 36px;
+    }
+
+    .ampm-option {
+        width: 50px;
+    }
+
+    .bottom-note {
+        display: none;
+    }
+}

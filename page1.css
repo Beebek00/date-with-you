@@ -1,0 +1,350 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #0b0b14;
+    color: #ffffff;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.intro-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255, 80, 130, 0.12),
+            transparent 35%
+        ),
+        #0b0b14;
+}
+
+
+/* =========================
+   BACKGROUND STARS
+========================= */
+
+.stars {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,150,180,0.5) 1px, transparent 1px);
+
+    background-size: 90px 90px, 140px 140px;
+
+    background-position: 10px 20px, 50px 70px;
+
+    opacity: 0.35;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    max-width: 700px;
+    padding: 40px 25px;
+}
+
+
+/* =========================
+   SMALL TITLE
+========================= */
+
+.eyebrow {
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    color: #ff7fa5;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   MAIN HEADING
+========================= */
+
+h1 {
+    font-size: clamp(42px, 7vw, 72px);
+
+    line-height: 1.1;
+
+    font-weight: 600;
+
+    letter-spacing: -2px;
+}
+
+h1 span {
+    display: block;
+
+    color: #ff7fa5;
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.heart {
+    font-size: 42px;
+
+    color: #ff4f81;
+
+    margin: 30px 0;
+
+    text-shadow:
+        0 0 15px rgba(255, 79, 129, 0.7),
+        0 0 35px rgba(255, 79, 129, 0.4);
+
+    animation: heartbeat 1.8s infinite;
+}
+
+
+/* =========================
+   HEARTBEAT ANIMATION
+========================= */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.intro-text {
+    color: #b7b7c5;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.open-btn {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: #ff4f81;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.open-btn:hover {
+    transform: translateY(-4px);
+
+    background: #ff6b96;
+
+    box-shadow:
+        0 10px 30px rgba(255, 79, 129, 0.35);
+}
+
+
+/* Button Heart */
+
+.open-btn span {
+    margin-left: 7px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #666675;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+footer span {
+    color: #ff4f81;
+}
+/* =========================
+   PAGE TRANSITIONS
+========================= */
+
+body {
+    opacity: 0;
+    animation: pageFadeIn 0.6s ease forwards;
+}
+
+body.page-exit {
+    animation: pageFadeOut 0.35s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+/* =========================
+   SECRET HEART MESSAGE
+   ========================= */
+
+.heart {
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.secret-message {
+    max-width: 500px;
+    margin: 20px auto 0;
+
+    color: #ffb3c6;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.secret-message.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .intro-content {
+        padding: 30px 20px;
+    }
+
+    .intro-text {
+        font-size: 14px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+}
